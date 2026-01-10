@@ -15,7 +15,9 @@ function App() {
           return;
       }
 
-      setTodos(curTodos => [...curTodos, { id: curTodos.length + 1, text }])
+      setTodos(curTodos => [...curTodos, { id: curTodos.length + 1, text }]);
+
+      todoRef.current.value = '';
   }
 
   function handleDelete(id) {
