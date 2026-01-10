@@ -1,34 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, createRef } from 'react'
 import './App.css'
+import {ToDoItem} from "./components/ToDoItem.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([
+    { id: 1, text: 'Learn React', completed: false },
+    { id: 2, text: 'Build a ToDo App', completed: true },
+  ]);
+
+  const todoRef = createRef();
+
+  function handleAdd(text) {
+      if (!text) {
+          return;
+      }
+
+      setTodos(curTodos => [...curTodos, { id: curTodos.length + 1, text }])
+  }
+
+  function handleDelete(id) {
+      setTodos(curTodos => curTodos.filter(todo => todo.id !== id));
+  }
+
+  function handleComplete(id) {
+      setTodos(curTodos => curTodos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="todo-container">
+      <h1>My Tasks</h1>
+      
+      <div className="input-group">
+        <input 
+          type="text" 
+          placeholder="Add a new task..."
+          ref={todoRef}
+          onKeyPress={e => e.key === 'Enter' && handleAdd(todoRef.current.value)}
+        />
+        <button className="add-btn" onClick={() => handleAdd(todoRef.current.value)}>Add</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      <ul className="todo-list">
+        {todos.map((todo) => (
+            <ToDoItem key={todo.id} item={todo} handleComplete={handleComplete} handleDelete={handleDelete}/>
+        ))}
+      </ul>
+    </div>
   )
 }
 
