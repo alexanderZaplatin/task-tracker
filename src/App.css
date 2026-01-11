@@ -1,184 +1,91 @@
-:root {
-  --primary-color: #646cff;
-  --primary-hover: #535bf2;
-  --bg-dark: #1a1a1a;
-  --card-bg: #242424;
-  --text-main: #ffffff;
-  --text-muted: #a1a1a1;
-  --success: #4CAF50;
-  --success-hover: #45a049;
-  --danger: #f44336;
-  --danger-hover: #da190b;
-  --border-radius: 12px;
-  --transition: all 0.3s ease;
-}
-
 #root {
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
 .todo-container {
-  background-color: var(--card-bg);
-  padding: 3rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: var(--transition);
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  background: linear-gradient(45deg, var(--primary-color), #00d2ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-color: #242424;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .input-group {
   display: flex;
-  gap: 15px;
-  margin-bottom: 2.5rem;
+  gap: 10px;
+  margin-bottom: 2rem;
 }
 
-input[type="text"],
-select {
+input[type="text"] {
   flex-grow: 1;
-  padding: 14px 18px;
-  border-radius: var(--border-radius);
-  border: 2px solid #333;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-input[type="text"]:focus,
-select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.2);
-}
-
-select {
-  width: 100%;
-  margin-bottom: 2.5rem;
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 18px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #646cff;
+  background-color: #1a1a1a;
+  color: white;
 }
 
 .add-btn {
-  background-color: var(--primary-color);
+  background-color: #646cff;
   color: white;
   border: none;
-  padding: 0 30px;
+  padding: 0 20px;
   cursor: pointer;
-  border-radius: var(--border-radius);
-  font-weight: 600;
-  transition: var(--transition);
+  border-radius: 4px;
 }
 
 .add-btn:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.4);
-}
-
-.todo-columns {
-  display: flex;
-  gap: 3rem;
-  justify-content: space-between;
-}
-
-.todo-column {
-  flex: 1;
-  min-width: 0;
-}
-
-.todo-column h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-muted);
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.5rem;
-  text-align: left;
+  background-color: #535bf2;
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  text-align: left;
 }
 
 .todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
-  background-color: var(--bg-dark);
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  border: 1px solid transparent;
-}
-
-.todo-item:hover {
-  transform: scale(1.02);
-  border-color: #444;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.todo-text {
-  font-size: 1.1rem;
-  color: var(--text-main);
-}
-
-.todo-item.completed {
-  opacity: 0.7;
+  padding: 10px;
+  border-bottom: 1px solid #333;
 }
 
 .todo-item.completed .todo-text {
   text-decoration: line-through;
-  color: var(--text-muted);
+  color: #888;
 }
 
 .actions {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 .complete-btn, .delete-btn {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  padding: 5px 10px;
+  font-size: 0.8rem;
   cursor: pointer;
-  border-radius: 8px;
-  border: none;
-  transition: var(--transition);
+  border-radius: 4px;
+  border: 1px solid transparent;
 }
 
 .complete-btn {
-  background-color: var(--success);
+  background-color: #4CAF50;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
   color: white;
 }
 
 .complete-btn:hover {
-  background-color: var(--success-hover);
-  transform: translateY(-1px);
-}
-
-.delete-btn {
-  background-color: var(--danger);
-  color: white;
+  background-color: #45a049;
 }
 
 .delete-btn:hover {
-  background-color: var(--danger-hover);
-  transform: translateY(-1px);
+  background-color: #da190b;
 }
