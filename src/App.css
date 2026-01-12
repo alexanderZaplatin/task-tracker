@@ -117,6 +117,28 @@ select {
   gap: 12px;
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
 .todo-item {
   display: flex;
   justify-content: space-between;
@@ -126,6 +148,11 @@ select {
   border-radius: var(--border-radius);
   transition: var(--transition);
   border: 1px solid transparent;
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.todo-item.deleting {
+  animation: slideOut 0.3s ease-in forwards;
 }
 
 .todo-item:hover {
@@ -181,4 +208,12 @@ select {
 .delete-btn:hover {
   background-color: var(--danger-hover);
   transform: translateY(-1px);
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+.complete-btn:active, .delete-btn:active {
+  transform: scale(0.9);
 }
